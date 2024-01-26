@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+.calculator-container {
+    margin: auto;
+    width: 600px;
+}
+.calculator {
+    border: 2px solid #000;
+    width: 600px;
+    padding: 20px;
+    background-color: #FFA69E;
+    display: flex;
+    flex-direction: column;
+    font-size: 2em;
+    font-family: 'Space Mono', monospace;
+    color: #5E6472;
+}
+
+.display {
+    border: 2px solid #000;
+    background-color: white;
+    text-align: right;
+    padding: 5px 5px;
+    font-size: 2em;
+}
+
+.display p {
+    margin: 0;
+}
+
+.button-container {
+    border: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.button-row {
+    /* border: 2px solid #000; */
+    display: flex;
+    align-content: space-between;
+}
+
+.button {
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #AED9E0;
+    flex-basis: 150px;
+    padding: 40px 0;
+}
+
+.button.zero {
+    flex-basis: 304px;
+}
+
+.button.misc {
+    background-color: #FAF3DD;
+}
+
+.button.operator {
+    background-color: #B8F2E6;
+}

@@ -10,38 +10,39 @@
 <body>
     <div class="calculator-container">
         <div class="calculator">
-            <div class="display">
-                <p class="demo-display">223</p>
+            <div class="display-container">
+                <!-- <p class="demo-display">223</p> -->
+                <p id="display">0</p>
             </div>
             <div class="button-container">
                 <div class="button-row">
-                    <div class="button misc"> AC </div>
-                    <div class="button misc"> +/- </div>
-                    <div class="button misc"> % </div>
-                    <div class="button operator"> / </div>
+                    <div id="clear" class="button misc">AC</div>
+                    <div id="neg" class="button misc">+/-</div>
+                    <div id="percent" class="button misc">%</div>
+                    <div id="divide" class="button operator">/</div>
                 </div>
                 <div class="button-row">
-                    <div class="button number"> 7 </div>
-                    <div class="button number"> 8 </div>
-                    <div class="button number"> 9 </div>
-                    <div class="button operator"> * </div>
+                    <div id="seven" class="button number" onClick="display('seven')">7</div>
+                    <div id="eight" class="button number" onClick="display('eight')">8</div>
+                    <div id="nine" class="button number" onClick="display('nine')">9</div>
+                    <div id="multiply" class="button operator">*</div>
                 </div>
                 <div class="button-row">
-                    <div class="button number"> 4 </div>
-                    <div class="button number"> 5 </div>
-                    <div class="button number"> 6 </div>
-                    <div class="button operator"> - </div>
+                    <div id="four" class="button number" onClick="display('four')">4</div>
+                    <div id="five" class="button number" onClick="display('five')">5</div>
+                    <div id="six" class="button number" onClick="display('six')">6</div>
+                    <div id="subtract" class="button operator">-</div>
                 </div>
                 <div class="button-row">
-                    <div class="button number"> 1 </div>
-                    <div class="button number"> 2 </div>
-                    <div class="button number"> 3 </div>
-                    <div class="button operator"> + </div>
+                    <div id="one" class="button number" onClick="display('one')">1</div>
+                    <div id="two" class="button number" onClick="display('two')">2</div>
+                    <div id="three" class="button number" onClick="display('three')">3</div>
+                    <div id="add" class="button operator">+</div>
                 </div>
                 <div class="button-row">
-                    <div class="button number zero"> 0 </div>
-                    <div class="button number"> . </div>
-                    <div class="button operator"> = </div>
+                    <div id="zero" class="button number" onClick="display('zero')">0</div>
+                    <div id="decimal" class="button number">.</div>
+                    <div id="equals" class="button operator">=</div>
                 </div>
             </div>
         </div>

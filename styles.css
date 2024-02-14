@@ -62,9 +62,11 @@
 
 .button.misc {
     background-color: hsl(46, 74%, 92%);
+    /* background-color: hsl(46, 84%, 86%); */
 }
 
-.button.operator {
+.button.operator,
+#equals {
     /* background-color: hsl(168, 53%, 87%); */
     background-color: hsl(168, 69%, 84%);
 }

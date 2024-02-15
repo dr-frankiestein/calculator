@@ -41,21 +41,32 @@ numberBtns.forEach(function(number) {
   });
 });
 
-
 const operatorBtns = document.querySelectorAll('.operator');
 operatorBtns.forEach(function(operator) {
   operator.addEventListener("mousedown", function (event) {
     event.target.style.backgroundColor = "hsl(46, 74%, 92%)";
     let opVal = event.target.innerHTML;
-    vals.push(displayValue);
+    if (displayValue !== "") vals.push(displayValue);
     vals.push(opVal);
-    clearDisplay(); 
-  });
-  if (operator.id === "equals") {
     operator.addEventListener("mouseup", (event) => {
-      clearShading();
+      if (vals.length >= 3) {
+        numOne = takeFirstValue(vals);
+        // numOne = vals.splice(0,1);
+        operation = takeFirstValue(vals);
+        numTwo = takeFirstValue(vals);
+        result = operate(numOne, numTwo, operation);
+        // displayValue = result;
+        displayDiv.textContent = result;
+        vals.unshift(result);
+      };
     });
-  };
+    resetDisplayValue(); 
+  });
+  // if (operator.id === "equals") {
+  //   operator.addEventListener("mouseup", (event) => {
+  //     clearShading();
+  //   });
+  // };
 });
 
 let displayValue = '';
@@ -75,10 +86,11 @@ equalsBtn.addEventListener("click", () => {
   operation = takeFirstValue(vals);
   numTwo = takeFirstValue(vals);
   result = operate(numOne, numTwo, operation);
-  displayValue = result;
+  // displayValue = result;
   displayDiv.textContent = result;
-  // vals.unshift(result);
+  vals.unshift(result);
   clearShading();
+  resetDisplayValue(); 
 })
 
 let originalOpsBG = getComputedStyle(equalsBtn).backgroundColor; // Store original color (red)
@@ -102,9 +114,6 @@ miscBtns.forEach(function(misc) {
 });
 
 
-
-
-
 const takeFirstValue = function(array) {
   lilArray = array.splice(0,1);
   return lilArray[0];
@@ -112,7 +121,7 @@ const takeFirstValue = function(array) {
 
 const clearBtn = document.getElementById("clear");
 clearBtn.addEventListener("click", () => {
-  resetAllVals();
+  clearAllVals();
   clearShading();
 });
 
@@ -122,12 +131,16 @@ const clearShading = function() {
     });
   };
 
-const clearDisplay = function() {
+const resetDisplayValue = function() {
   displayValue = '';
 };
 
-const resetAllVals = function() {
+const clearAllVals = function() {
   vals = [];
-  clearDisplay();
+  resetDisplayValue();
   displayDiv.textContent = 0;
+}
+
+function isNotNumber(value) {
+  return typeof value !== 'number';
 }
